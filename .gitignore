@@ -66,3 +66,6 @@ index.php
 robots.txt
 update.php
 web.config
+
+#.ddev
+.ddev/config.yaml
