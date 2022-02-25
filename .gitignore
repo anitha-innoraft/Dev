@@ -69,3 +69,5 @@ web.config
 
 #.ddev
 .ddev/config.yaml
+
+.gitignore
