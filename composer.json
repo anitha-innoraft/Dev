@@ -23,6 +23,7 @@
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/devel": "^2.0.0",
+        "drupal/webform": "^6.1",
         "drush/drush": "9"
     },
     "conflict": {
