@@ -1,0 +1,31 @@
+uuid: 7cdc9063-b162-4bfa-ad99-488ffb3619ed
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f5fdbc6d-7bce-4b1f-a041-f292924ba7d1'
+  module:
+    - block_content
+    - system
+  theme:
+    - bartik
+id: newcustomblock
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:f5fdbc6d-7bce-4b1f-a041-f292924ba7d1'
+settings:
+  id: 'block_content:f5fdbc6d-7bce-4b1f-a041-f292924ba7d1'
+  label: 'New Custom block'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /list
+    negate: false
+    context_mapping: {  }
