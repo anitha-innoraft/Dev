@@ -1,5 +1,6 @@
 ignored_config_entities:
   - system.performance
   - system.site
+  - 'webform.webform.*'
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
