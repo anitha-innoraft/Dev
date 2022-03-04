@@ -12,7 +12,7 @@ id: test_form
 title: 'Test Form'
 description: ''
 category: ''
-elements: "name:\n  '#type': textfield\n  '#title': Name\nemail:\n  '#type': textfield\n  '#title': Email"
+elements: "name:\n  '#type': textfield\n  '#title': 'New Name'\nemail:\n  '#type': textfield\n  '#title': Email"
 css: ''
 javascript: ''
 settings:
