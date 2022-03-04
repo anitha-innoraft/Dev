@@ -14,6 +14,7 @@ blacklist:
   - devel.settings
   - devel.toolbar.settings
   - system.menu.devel
+  - system.site
   - tour.tour.views-ui
 graylist: {  }
 graylist_dependents: true
