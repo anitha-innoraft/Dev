@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.book.body
     - field.field.node.book.field_book_description
     - field.field.node.book.field_isbn
+    - field.field.node.book.field_test_field
     - node.type.book
   module:
     - path
@@ -30,6 +31,14 @@ content:
     region: content
   field_isbn:
     weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_test_field:
+    weight: 27
     settings:
       size: 60
       placeholder: ''
