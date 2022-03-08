@@ -36,9 +36,9 @@ function customnewblock_update_8201() {
 
 // function customnewblock_update_8701() {
 //   $splitFiles = [
-//     'core.entity_form_display.node.book.default.yml',
-//     'field.field.node.book.field_book_description.yml',
 //     'field.storage.node.field_book_description.yml',
+//     'field.field.node.book.field_book_description.yml',
+//     'core.entity_form_display.node.book.default.yml',
 //     'core.entity_view_display.node.book.default.yml',
 //     'core.entity_view_display.node.book.teaser.yml',
 //   ];
@@ -50,4 +50,26 @@ function customnewblock_update_8201() {
 //   foreach ($splitFiles as $splitFile) {
 //     $config_storage->write($splitFile, $source->read($splitFile));
 //   }
+// }
+
+// function customnewblock_update_8901() {
+//   $blockEntityManager = \Drupal::service('entity.manager')
+//   ->getStorage('block_content');
+//   $block = $blockEntityManager->create([
+//     'info' => 'Test Block',
+//     'type' => 'basic',
+//     'langcode' => 'en',
+//     'uuid' => 'dcdb2c2b-5316-49c4-886b-bb678151b531',
+//     'body' => [
+//       'value' => 'B3 test body',
+//       'format' => 'full_html',
+//     ],
+//   ]);
+//   // $block->set('body', 'B4 Test body update 1');
+//   // // Block content
+//   // $block->body->value = '...text of the block with allowed HTML tags...';
+
+//   // // Block Input Format, because block content formated long text
+//   // $block->body->format = 'full_html';
+//   $block->save();
 // }

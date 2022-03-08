@@ -1,0 +1,37 @@
+<?php
+
+function testnewblock_update_8001() {
+  $default_content = [
+    'block_content' => [
+      '5bffd6fa-d536-499a-ab7e-fcdbd1b76f23' => [
+        'info' => 'B3 Test',
+        'type' => 'basic',
+        'body' => [
+          'value' => 'Test content',
+          'format' => 'full_html',
+        ],
+      ],
+    ],
+  ];
+
+  foreach ($default_content as $entity_type_id => $items) {
+    $storage = \Drupal::entityTypeManager()->getStorage($entity_type_id);
+    foreach ($items as $uuid => $item) {
+      $entity = $storage->create($item + ['uuid' => $uuid]);
+      $entity->save();
+    }
+  }
+  // $blockEntityManager = \Drupal::service('entity.manager')->getStorage('block_content');
+  // $block = $blockEntityManager->create([
+  //   'info' => 'Test New Block',
+  //   'type' => 'basic',
+  //   'langcode' => 'en',
+  //   'uuid' => 'dcdb2c2b-5316-49c4-886b-bb678151b531',
+  //   'body' => [
+  //     'value' => 'Test content',
+  //     'format' => 'full_html',
+  //   ],
+  // ]);
+
+  // $block->save();
+}
