@@ -52,7 +52,7 @@ function customnewblock_update_8201() {
 //   }
 // }
 
-function customnewblock_update_8818() {
+function customnewblock_update_8819() {
   $splitFiles = [
     'field.storage.node.field_book_new_field.yml',
     'field.field.node.book.field_book_new_field.yml',
@@ -87,7 +87,7 @@ function customnewblock_update_8818() {
   // }
   $config = Drupal::service('config.factory');
   foreach ($splitFiles as $field) {
-  $settings = $config->getEditable($field)->get();
+  $settings = $config->getEditable($field)->get('settings');
  \Drupal::service('config.factory')->getEditable($field)->setData($settings)->save();
 
  } // foreach ($splitFiles as $field) {
