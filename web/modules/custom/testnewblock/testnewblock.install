@@ -1,11 +1,11 @@
 <?php
 
-function testnewblock_update_8001() {
+function testnewblock_update_8110() {
   $default_content = [
     'block_content' => [
-      '5bffd6fa-d536-499a-ab7e-fcdbd1b76f23' => [
+      'dcdb2c2b-5316-49c4-886b-bb678151b531' => [
         'info' => 'B3 Test',
-        'type' => 'basic',
+        'type' => 'content_block',
         'body' => [
           'value' => 'Test content',
           'format' => 'full_html',
