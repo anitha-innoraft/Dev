@@ -52,7 +52,7 @@ function customnewblock_update_8201() {
 //   }
 // }
 
-function customnewblock_update_8816() {
+function customnewblock_update_8817() {
   $splitFiles = [
     'field.storage.node.field_book_new_field.yml',
     'field.field.node.book.field_book_new_field.yml',
@@ -78,14 +78,19 @@ function customnewblock_update_8816() {
   //   $config->getEditable($field)->setData($data)->save();
 
   // }
-  $path = realpath('../config/sync');
-  $file = new FileStorage($path);
-  foreach ($splitFiles as $id) {
-    $config_data = $file->read($id);
-    $config = \Drupal::configFactory()->getEditable($id);
-    $config->setData($config_data)->save();
-  }
-  // foreach ($splitFiles as $field) {
+  // $path = realpath('../config/sync');
+  // $file = new FileStorage($path);
+  // foreach ($splitFiles as $id) {
+  //   $config_data = $file->read($id);
+  //   $config = \Drupal::configFactory()->getEditable($id);
+  //   $config->setData($config_data)->save();
+  // }
+  $config = Drupal::service('config.factory');
+  foreach ($splitFiles as $field) {
+  $settings = $config->getEditable($field)->get();
+ \Drupal::service('config.factory')->getEditable("simple_sitemap.settings")->setData($settings)->save();
+
+ } // foreach ($splitFiles as $field) {
   // $config = \Drupal::configFactory()->getEditable($field);
   // $config->set('translatable', TRUE);
   // $config->save();
