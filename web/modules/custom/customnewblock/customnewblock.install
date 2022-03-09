@@ -52,7 +52,7 @@ function customnewblock_update_8201() {
 //   }
 // }
 
-function customnewblock_update_8817() {
+function customnewblock_update_8818() {
   $splitFiles = [
     'field.storage.node.field_book_new_field.yml',
     'field.field.node.book.field_book_new_field.yml',
@@ -88,7 +88,7 @@ function customnewblock_update_8817() {
   $config = Drupal::service('config.factory');
   foreach ($splitFiles as $field) {
   $settings = $config->getEditable($field)->get();
- \Drupal::service('config.factory')->getEditable("simple_sitemap.settings")->setData($settings)->save();
+ \Drupal::service('config.factory')->getEditable($field)->setData($settings)->save();
 
  } // foreach ($splitFiles as $field) {
   // $config = \Drupal::configFactory()->getEditable($field);
