@@ -1,14 +1,14 @@
-uuid: 5bffd6fa-d536-499a-ab7e-fcdbd1b76f23
+uuid: 7c473c51-1361-4b34-9a2c-7105a8c9d022
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:content_block:dcdb2c2b-5316-49c4-886b-bb678151b531'
+    - 'block_content:basic:dcdb2c2b-5316-49c4-886b-bb678151b531'
   module:
     - block_content
   theme:
     - bartik
-id: mycustomblockmodule
+id: newfinaltest
 theme: bartik
 region: sidebar_second
 weight: 0
@@ -16,7 +16,7 @@ provider: null
 plugin: 'block_content:dcdb2c2b-5316-49c4-886b-bb678151b531'
 settings:
   id: 'block_content:dcdb2c2b-5316-49c4-886b-bb678151b531'
-  label: 'My Custom block Module'
+  label: 'New final Test'
   provider: block_content
   label_display: visible
   status: true
