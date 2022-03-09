@@ -52,7 +52,7 @@ function customnewblock_update_8201() {
 //   }
 // }
 
-function customnewblock_update_8813() {
+function customnewblock_update_8814() {
   $splitFiles = [
     'field.storage.node.field_book_new_field.yml',
     'field.field.node.book.field_book_new_field.yml',
