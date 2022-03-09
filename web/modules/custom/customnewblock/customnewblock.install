@@ -72,8 +72,8 @@ function customnewblock_update_8814() {
   $config = \Drupal::service('config.factory');
   foreach ($splitFiles as $field) {
     $data = $config->getEditable($field)->get();
-    // $dependencies = $data['dependencies'];
-    // $data['dependencies'] = $dependencies;
+     $dependencies = $data['dependencies'];
+     $data['dependencies'] = $dependencies;
     $config->getEditable($field)->setData($data)->save();
 
   }
