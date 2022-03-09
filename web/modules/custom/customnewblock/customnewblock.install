@@ -69,17 +69,17 @@ function customnewblock_update_8813() {
   //   $config_data = $source->read($splitFile);
   //   $config_storage->write($splitFile, $config_data);
   // }
-  // $config = Drupal::service('config.factory');
-  // foreach ($splitFiles as $field) {
-  //   $data = $config->getEditable($field)->get();
-  //   $dependencies = $data['dependencies'];
-  //   $data['dependencies'] = $dependencies;
-  //   $config->getEditable($field)->setData($data)->save();
-
-  // }
+  $config = \Drupal::service('config.factory');
   foreach ($splitFiles as $field) {
-  $config = \Drupal::configFactory()->getEditable($field);
-  $config->set('translatable', TRUE);
-  $config->save();
+    $data = $config->getEditable($field)->get();
+    // $dependencies = $data['dependencies'];
+    // $data['dependencies'] = $dependencies;
+    $config->getEditable($field)->setData($data)->save();
+
   }
+  // foreach ($splitFiles as $field) {
+  // $config = \Drupal::configFactory()->getEditable($field);
+  // $config->set('translatable', TRUE);
+  // $config->save();
+  // }
 }
