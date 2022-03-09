@@ -52,20 +52,26 @@ function customnewblock_update_8201() {
 //   }
 // }
 
-// function customnewblock_update_8801() {
-//   $splitFiles = [
-//     'field.storage.node.field_test_field.yml',
-//     'field.field.node.book.field_test_field.yml',
-//     'core.entity_form_display.node.book.default.yml',
-//     'core.entity_view_display.node.book.default.yml',
-//     'core.entity_view_display.node.book.teaser.yml',
-//   ];
+function customnewblock_update_8812() {
+  $splitFiles = [
+    'field.storage.node.field_book_new_field.yml',
+    'field.field.node.book.field_book_new_field.yml',
+    'core.entity_form_display.node.book.default.yml',
+    'core.entity_view_display.node.book.default.yml',
+    'core.entity_view_display.node.book.teaser.yml',
+  ];
 
-//   $config_path = realpath('../config/sync');
-//   $source = new FileStorage($config_path);
-//   $config_storage = \Drupal::service('config.storage');
+  $config_path = realpath('../config/sync');
+  $source = new FileStorage($config_path);
+  $config_storage = \Drupal::service('config.storage');
 
-//   foreach ($splitFiles as $splitFile) {
-//     $config_storage->write($splitFile, $source->read($splitFile));
-//   }
-// }
+  foreach ($splitFiles as $splitFile) {
+    $config_data = $source->read($splitFile);
+    $config_storage->write($splitFile, $config_data);
+  }
+  // $config = Drupal::service('config.factory');
+  // foreach ($splitFiles as $field) {
+  //   $data = $config->getEditable($field)->get();
+
+  // }
+}

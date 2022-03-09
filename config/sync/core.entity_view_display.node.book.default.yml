@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.book.body
     - field.field.node.book.field_book_description
+    - field.field.node.book.field_book_new_field
     - field.field.node.book.field_isbn
     - field.field.node.book.field_test_field
     - node.type.book
@@ -25,6 +26,14 @@ content:
     region: content
   field_book_description:
     weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_book_new_field:
+    weight: 105
     label: above
     settings:
       link_to_entity: false
