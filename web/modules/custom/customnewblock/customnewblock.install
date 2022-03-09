@@ -52,7 +52,7 @@ function customnewblock_update_8201() {
 //   }
 // }
 
-function customnewblock_update_8815() {
+function customnewblock_update_8816() {
   $splitFiles = [
     'field.storage.node.field_book_new_field.yml',
     'field.field.node.book.field_book_new_field.yml',
@@ -69,13 +69,21 @@ function customnewblock_update_8815() {
   //   $config_data = $source->read($splitFile);
   //   $config_storage->write($splitFile, $config_data);
   // }
-  $config = \Drupal::service('config.factory');
-  foreach ($splitFiles as $field) {
-    $data = $config->getEditable($field)->get();
-     $dependencies = $data['dependencies'];
-     $data['dependencies'] = $dependencies;
-    $config->getEditable($field)->setData($data)->save();
+  // $config = \Drupal::service('config.factory');
+  // foreach ($splitFiles as $field) {
+  //   $data = $config->getEditable($field)->get();
+  //    $dependencies = $data['dependencies'];
+  //   //  var_dump($dependencies);exit;
+  //    $data['dependencies'] = $dependencies;
+  //   $config->getEditable($field)->setData($data)->save();
 
+  // }
+  $path = realpath('../config/sync');
+  $file = new FileStorage($path);
+  foreach ($splitFiles as $id) {
+    $config_data = $file->read($id);
+    $config = \Drupal::configFactory()->getEditable($id);
+    $config->setData($config_data)->save();
   }
   // foreach ($splitFiles as $field) {
   // $config = \Drupal::configFactory()->getEditable($field);
