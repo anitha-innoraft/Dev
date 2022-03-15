@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.book.body
     - field.field.node.book.field_book_description
     - field.field.node.book.field_book_new_field
+    - field.field.node.book.field_final_field
     - field.field.node.book.field_isbn
     - field.field.node.book.field_test_field
     - node.type.book
@@ -32,6 +33,14 @@ content:
     region: content
   field_book_new_field:
     weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_final_field:
+    weight: 29
     settings:
       size: 60
       placeholder: ''

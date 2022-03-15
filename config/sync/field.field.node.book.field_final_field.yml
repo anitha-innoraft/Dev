@@ -1,0 +1,19 @@
+uuid: 58731707-3653-4c9d-aa23-3a037adba87c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_final_field
+    - node.type.book
+id: node.book.field_final_field
+field_name: field_final_field
+entity_type: node
+bundle: book
+label: 'Final field'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

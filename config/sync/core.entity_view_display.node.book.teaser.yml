@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.book.body
     - field.field.node.book.field_book_description
     - field.field.node.book.field_book_new_field
+    - field.field.node.book.field_final_field
     - field.field.node.book.field_isbn
     - field.field.node.book.field_test_field
     - node.type.book
@@ -34,5 +35,6 @@ content:
 hidden:
   field_book_description: true
   field_book_new_field: true
+  field_final_field: true
   field_isbn: true
   field_test_field: true

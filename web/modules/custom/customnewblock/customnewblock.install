@@ -34,65 +34,35 @@ function customnewblock_update_8201() {
   }
 }
 
-// function customnewblock_update_8701() {
-//   $splitFiles = [
-//     'field.storage.node.field_book_description.yml',
-//     'field.field.node.book.field_book_description.yml',
-//     'core.entity_form_display.node.book.default.yml',
-//     'core.entity_view_display.node.book.default.yml',
-//     'core.entity_view_display.node.book.teaser.yml',
-//   ];
 
-//   $config_path = realpath('../config/sync');
-//   $source = new FileStorage($config_path);
-//   $config_storage = \Drupal::service('config.storage');
-
-//   foreach ($splitFiles as $splitFile) {
-//     $config_storage->write($splitFile, $source->read($splitFile));
-//   }
-// }
-
-function customnewblock_update_8819() {
+function customnewblock_update_8846() {
   $splitFiles = [
-    'field.storage.node.field_book_new_field.yml',
-    'field.field.node.book.field_book_new_field.yml',
-    'core.entity_form_display.node.book.default.yml',
-    'core.entity_view_display.node.book.default.yml',
-    'core.entity_view_display.node.book.teaser.yml',
+    'field.storage.node.field_book_new_field',
+    // 'field.field.node.book.field_book_new_field.yml',
+    // 'core.entity_form_display.node.book.default.yml',
+    // 'core.entity_view_display.node.book.default.yml',
+    // 'core.entity_view_display.node.book.teaser.yml',
   ];
 
-  // $config_path = realpath('../config/sync');
-  // $source = new FileStorage($config_path);
-  // $config_storage = \Drupal::service('config.storage');
+  $config_path = realpath('../config/sync');
+  $source = new FileStorage($config_path);
+  \Drupal::entityManager()->getStorage('field_storage_config')
+    ->create($source->read('field.storage.node.field_book_new_field'))
+    ->save();
 
-  // foreach ($splitFiles as $splitFile) {
-  //   $config_data = $source->read($splitFile);
-  //   $config_storage->write($splitFile, $config_data);
-  // }
-  // $config = \Drupal::service('config.factory');
-  // foreach ($splitFiles as $field) {
-  //   $data = $config->getEditable($field)->get();
-  //    $dependencies = $data['dependencies'];
-  //   //  var_dump($dependencies);exit;
-  //    $data['dependencies'] = $dependencies;
-  //   $config->getEditable($field)->setData($data)->save();
+  \Drupal::entityManager()->getStorage('field_config')
+    ->create($source->read('field.field.node.book.field_book_new_field'))
+    ->save();
+}
 
-  // }
-  // $path = realpath('../config/sync');
-  // $file = new FileStorage($path);
-  // foreach ($splitFiles as $id) {
-  //   $config_data = $file->read($id);
-  //   $config = \Drupal::configFactory()->getEditable($id);
-  //   $config->setData($config_data)->save();
-  // }
-  $config = Drupal::service('config.factory');
-  foreach ($splitFiles as $field) {
-  $settings = $config->getEditable($field)->get('settings');
- \Drupal::service('config.factory')->getEditable($field)->setData($settings)->save();
+function customnewblock_update_8847() {
+  $config_path = realpath('../config/sync');
+  $source = new FileStorage($config_path);
+  \Drupal::entityManager()->getStorage('field_storage_config')
+  ->create($source->read('field.storage.node.field_book_new_field'))
+    ->save();
 
- } // foreach ($splitFiles as $field) {
-  // $config = \Drupal::configFactory()->getEditable($field);
-  // $config->set('translatable', TRUE);
-  // $config->save();
-  // }
+  \Drupal::entityManager()->getStorage('field_config')
+  ->create($source->read('field.field.node.book.field_book_new_field'))
+    ->save();
 }
