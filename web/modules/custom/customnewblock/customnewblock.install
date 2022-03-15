@@ -59,10 +59,10 @@ function customnewblock_update_8847() {
   $config_path = realpath('../config/sync');
   $source = new FileStorage($config_path);
   \Drupal::entityManager()->getStorage('field_storage_config')
-  ->create($source->read('field.storage.node.field_book_new_field'))
+  ->create($source->read('field.storage.node.field_final_field'))
     ->save();
 
   \Drupal::entityManager()->getStorage('field_config')
-  ->create($source->read('field.field.node.book.field_book_new_field'))
+  ->create($source->read('field.field.node.book.field_final_field'))
     ->save();
 }
