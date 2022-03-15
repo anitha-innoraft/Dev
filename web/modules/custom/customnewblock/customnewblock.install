@@ -55,7 +55,7 @@ function customnewblock_update_8846() {
     ->save();
 }
 
-function customnewblock_update_8847() {
+function customnewblock_update_8850() {
   $config_path = realpath('../config/sync');
   $source = new FileStorage($config_path);
   \Drupal::entityManager()->getStorage('field_storage_config')
@@ -65,4 +65,14 @@ function customnewblock_update_8847() {
   \Drupal::entityManager()->getStorage('field_config')
   ->create($source->read('field.field.node.book.field_final_field'))
     ->save();
+
+  $splitFiles = [
+    'core.entity_form_display.node.book.default',
+    'core.entity_view_display.node.book.default',
+    'core.entity_view_display.node.book.teaser',
+  ];
+  $config_storage = \Drupal::service('config.storage');
+  foreach ($splitFiles as $fields) {
+    $config_storage->write($fields, $source->read($fields));
+  }
 }
