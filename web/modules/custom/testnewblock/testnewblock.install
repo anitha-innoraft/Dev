@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * File is to create the block using update hook
+ */
+
+/**
+ * Update the content of a block.
+ *
+ * @return void
+ */
+function testnewblock_update_8112() {
+  $default_content = [
+    'block_content' => [
+      'dcdb2c2b-5316-49c4-886b-bb678151b531' => [
+        'info' => 'New final Test',
+        'type' => 'basic',
+        'body' => [
+          'value' => 'Test content',
+          'format' => 'full_html',
+        ],
+      ],
+    ],
+  ];
+
+  foreach ($default_content as $entity_type_id => $items) {
+    $storage = \Drupal::entityTypeManager()->getStorage($entity_type_id);
+    foreach ($items as $uuid => $item) {
+      $entity = $storage->create($item + ['uuid' => $uuid]);
+      $entity->save();
+    }
+  }
+}

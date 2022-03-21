@@ -4,7 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.book.body
+    - field.field.node.book.field_book_description
+    - field.field.node.book.field_book_new_field
+    - field.field.node.book.field_final_field
     - field.field.node.book.field_isbn
+    - field.field.node.book.field_test_field
     - node.type.book
   module:
     - text
@@ -21,8 +25,40 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_book_description:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_book_new_field:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_final_field:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_isbn:
     weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_test_field:
+    weight: 104
     label: above
     settings:
       link_to_entity: false
