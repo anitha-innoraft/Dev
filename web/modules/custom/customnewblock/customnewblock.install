@@ -1,10 +1,15 @@
 <?php
 
-use Drupal\block\Entity\Block;
-use Drupal\Core\Config\FileStorage;
 /**
- * Some information about the update.
+ * File to update the content and import the config using update_hook.
  */
+
+use Drupal\Core\Config\FileStorage;
+
+/**
+ * Function to create the block with the content.
+ */
+
 function customnewblock_update_8001() {
   $blockEntityManager = \Drupal::service('entity.manager')
   ->getStorage('block_content');
@@ -27,6 +32,10 @@ function customnewblock_update_8001() {
   $block->save();
 }
 
+/**
+ * Function to update the content of the block.
+ */
+
 function customnewblock_update_8201() {
   if ($block = \Drupal::service('entity.repository')->loadEntityByUuid('block_content', 'dcdb2c2b-5316-49c4-886b-bb678151b531')) {
     $block->set('body', 'B4 Test body update 1');
@@ -34,15 +43,12 @@ function customnewblock_update_8201() {
   }
 }
 
-
+/**
+ * Function to import the field changes of content type using update hook.
+ *
+ * @return void
+ */
 function customnewblock_update_8846() {
-  $splitFiles = [
-    'field.storage.node.field_book_new_field',
-    // 'field.field.node.book.field_book_new_field.yml',
-    // 'core.entity_form_display.node.book.default.yml',
-    // 'core.entity_view_display.node.book.default.yml',
-    // 'core.entity_view_display.node.book.teaser.yml',
-  ];
 
   $config_path = realpath('../config/sync');
   $source = new FileStorage($config_path);
@@ -54,7 +60,11 @@ function customnewblock_update_8846() {
     ->create($source->read('field.field.node.book.field_book_new_field'))
     ->save();
 }
-
+/**
+ * Function to import the field changes using entity manager and config storage.
+ *
+ * @return void
+ */
 function customnewblock_update_8850() {
   $config_path = realpath('../config/sync');
   $source = new FileStorage($config_path);
